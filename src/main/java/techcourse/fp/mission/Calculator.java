@@ -1,6 +1,7 @@
 package techcourse.fp.mission;
 
 import java.util.List;
+import java.util.function.IntPredicate;
 
 public class Calculator {
 
@@ -12,6 +13,12 @@ public class Calculator {
         return total;
     }
 
+//    public static int sumAll(List<Integer> numbers) {
+//        return numbers.stream()
+//                .mapToInt(Integer::intValue)
+//                .sum();
+//    }
+
     public static int sumAllEven(List<Integer> numbers) {
         int total = 0;
         for (int number : numbers) {
@@ -22,10 +29,42 @@ public class Calculator {
         return total;
     }
 
-    public static int sumAllOverThree(List<Integer> numbers) {
+//    public static int sumAllEven(List<Integer> numbers) {
+//        return numbers.stream()
+//                .mapToInt(Integer::intValue)
+//                .filter(number -> number % 2 == 0)
+//                .sum();
+//    }
+
+    public static int sumAllOverThree(List<Integer> numbers, Conditional conditional) {
         int total = 0;
 
         //TODO: List에 담긴 값 중 3보다 큰 수만을 더해야 한다.
+        for (int number : numbers) {
+            if (conditional.test(number)) {
+                total += number;
+            }
+        }
+
+        return total;
+    }
+
+//    public static int sumAllOverThree(List<Integer> numbers) {
+//        return numbers.stream()
+//                .mapToInt(Integer::intValue)
+//                .filter(number -> number > 3)
+//                .sum();
+//    }
+
+    public static int sum(List<Integer> numbers, IntPredicate conditional) {
+        int total = 0;
+
+        //TODO: List에 담긴 값 중 3보다 큰 수만을 더해야 한다.
+        for (int number : numbers) {
+            if (conditional.test(number)) {
+                total += number;
+            }
+        }
 
         return total;
     }
