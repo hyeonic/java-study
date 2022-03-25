@@ -63,8 +63,15 @@ public class StreamStudy {
                 .get();
     }
 
+//    public static long sumOverThreeAndDouble(List<Integer> numbers) {
+//        return 0L; // TODO: 이 부분을 구현한다.
+//    }
+
     public static long sumOverThreeAndDouble(List<Integer> numbers) {
-        return 0L; // TODO: 이 부분을 구현한다.
+        return numbers.stream()
+                .filter(number -> number > 3)
+                .mapToInt(number -> number * 2)
+                .sum();
     }
 
     public static void printLongestWordTop100() throws IOException {
